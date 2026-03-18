@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们相爱的8周年 - 我们的时光故事</title>
+    <!-- 引入Google字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --bg-color: #fff5f6;
+            --text-color: #4a4a4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Noto Serif SC', serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* 顶部欢迎区 */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* 默认背景图 */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .heart {
+            color: var(--primary-color);
+            font-size: 2rem;
+            animation: beat 1s infinite;
+        }
+
+        @keyframes beat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* 时间轴区域 */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        /* 每一年的卡片 */
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+
+        .content {
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .year-tag {
+            position: absolute;
+            top: -15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .left .year-tag { right: -10px; }
+        .right .year-tag { left: -10px; }
+
+        .content img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .content h2 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .content p {
+            margin-top: 10px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* 移动端适配 */
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .right { left: 0; }
+            .left .year-tag, .right .year-tag { left: -10px; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 100px 20px;
+            background: var(--bg-color);
+        }
+
+        .footer-msg {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>相爱 8 周年快乐</h1>
+        <div class="heart">❤</div>
+        <p style="margin-top: 20px; font-size: 1.2rem;">2016 - 2024 · 故事还在继续</p>
+    </header>
+
+    <div class="timeline" id="timeline">
+        <!-- 第1年 -->
+        <div class="container left">
+            <div class="content">
+                <div class="year-tag">第一年</div>
+                <h2>遇见你的最初</h2>
+                <img src="photo1.jpg" alt="第1年照片"> <!-- 请替换为你的图片文件名 -->
+                <p>那一年我们刚认识，所有的故事都从那个春天开始。那时候的你还很青涩，我也很害羞。</p>
+            </div>
+        </div>
+
+        <!-- 第2年 -->
+        <div class="container right">
+            <div class="content">
+                <div class="year-tag">第二年</div>
+                <h2>执手相伴</h2>
+                <img src="photo2.jpg" alt="第2年照片">
+                <p>我们一起去了很多地方，打卡了第一家喜欢的餐厅，确认了彼此就是对的人。</p>
+            </div>
+        </div>
+
+        <!-- 重复以上结构直到第8年 -->
+        <!-- 第3年 -->
+        <div class="container left">
+            <div class="content">
+                <div class="year-tag">第三年</div>
+                <h2>风雨同舟</h2>
+                <img src="photo3.jpg" alt="第3年照片">
+                <p>三年的时光，让我们更加了解彼此。无论是欢笑还是争吵，都成了最珍贵的回忆。</p>
+            </div>
+        </div>
+
+        <!-- ... 省略第4-7年，你可以按照格式自行复制 ... -->
+
+        <!-- 第8年 -->
+        <div class="container right">
+            <div class="content">
+                <div class="year-tag">第八年</div>
+                <h2>陶婚·相守</h2>
+                <img src="photo8.jpg" alt="第8年照片">
+                <p>今年是我们的第八年。从两个人到一家人，感谢你一直在我身边。老婆，我爱你！</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-msg">往后余生，全都是你</p>
+        <p style="margin-top: 20px; color: #999;">永远爱你的 [你的名字]</p>
+    </footer>
+
+    <script>
+        // 滚动动画脚本
+        const containers = document.querySelectorAll('.container');
+        
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        containers.forEach(container => {
+            observer.observe(container);
+        });
+    </script>
+</body>
+</html>
